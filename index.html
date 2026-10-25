@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>CARDIOPOLY — The High-Billing Stent-Deploying Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ====================================================================
+       1. SPLASH SCREEN (Shown while the game is loading)
+       ==================================================================== -->
+  <div id="splash-screen" class="screen-overlay active">
+    <div class="splash-card">
+      <div class="splash-image-wrap">
+        <img
+          id="splash-img"
+          src="Monopoly_board_center.png"
+          alt="Cardiopoly Splash Screen"
+        />
+      </div>
+      <div class="splash-loading-area">
+        <div class="splash-status" id="splash-status-text">Calibrating Cath Lab Billing Codes...</div>
+        <div class="splash-progress-track">
+          <div class="splash-progress-bar" id="splash-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       2. RULES OF THE GAME SCREEN (Shown after loading, before Start Game)
+       ==================================================================== -->
+  <div id="rules-screen" class="screen-overlay">
+    <div class="rules-modal">
+      <div class="rules-header">
+        <span class="rules-badge">CLINICAL PROTOCOL &amp; BILLING GUIDE</span>
+        <h1>CARDIOPOLY</h1>
+        <p class="rules-subtitle">Where lifestyle neglect meets high-margin metal.</p>
+      </div>
+
+      <div class="rules-body">
+        <div class="rules-section">
+          <h3>1. The Clinical Mission</h3>
+          <p>
+            Welcome to modern hospital cardiology! You compete against 3 bot opponents —
+            <strong>Fat Slob</strong>, <strong>Lazy Larry</strong>, and <strong>Sloppy Susan</strong> —
+            around a 40-tile hospital circuit. Nobody plays to "win" — you are here to witness the glorious
+            escalation of medical bureaucracy, defensive diagnostics, and lifestyle neglect.
+          </p>
+        </div>
+
+        <div class="rules-section">
+          <h3>2. Vital Signs &amp; Waste Points (No Money!)</h3>
+          <p>Instead of cash, every decision escalates three vital metrics:</p>
+          <ul>
+            <li><strong>SBP (Systolic Blood Pressure):</strong> Rises with hospital stress, sodium-laden cafeteria cookies, and surprise billing audits.</li>
+            <li><strong>BMI (Body Mass Index):</strong> Fluctuates wildly between miracle GLP-1 shortages, bariatric interventions, and trans-fat lobbying.</li>
+            <li><strong>WP (Waste Points):</strong> Acquiring hospital departments, ordering defensive tests, or visiting rival units (+100 WP) adds directly to your Waste Points score.</li>
+          </ul>
+        </div>
+
+        <div class="rules-section">
+          <h3>3. Acquiring Suites, Group Monopolies &amp; Runaway Auctions</h3>
+          <p>
+            Land on an unowned Cardiology property (e.g., <em>Oculostenotic space</em> or <em>Troponin cubicle</em>)
+            and you may claim it for its base <strong>WP</strong> price.
+          </p>
+          <p>
+            <strong>Full Department Monopoly (Double Rent):</strong> Landing on a property owned by another player
+            increases your Waste score by <strong>100 WP</strong> (along with raising your SBP and BMI).
+            <strong>When a player owns all properties in a color group, the rent doubles (200 WP)!</strong>
+          </p>
+          <p>
+            <strong>If a player declines to buy:</strong> An instant 10-second group auction begins! The price
+            counter ticks rapidly upward from the base price to <strong>1,000 WP</strong>. Anyone can step in and
+            hit <strong>"Buy"</strong> as the waste escalates — but if the counter reaches 1,000 WP, bidding stops
+            and the player who originally landed on the property is saddled with it at the maximum 1,000 WP!
+          </p>
+        </div>
+
+        <div class="rules-section">
+          <h3>4. Backroom Department Trades &amp; Dice</h3>
+          <p>
+            Swap hospital turf one-for-one with bots in the <strong>Trades</strong> panel below, or respond when
+            bots propose a trade. Tapping the <strong>Dice Box</strong> at the top rolls the dice and steers tokens
+            into maximum satirical drama.
+          </p>
+        </div>
+
+        <div class="rules-section">
+          <h3>5. Clinical Milestones &amp; The Finish Line</h3>
+          <p>
+            As medical waste and physical decline mount, clinical milestones will trigger — impacting players individually as they reach clinical milestones.
+          </p>
+          <p>
+            The game reaches its climax and ends when any player crosses one of the three terminal milestones:
+          </p>
+          <ul>
+            <li><strong>Systolic Blood Pressure (SBP) &ge; 200 mmHg:</strong> Hypertensive transcendence!</li>
+            <li><strong>Waste Points (WP) &ge; 10,000 WP:</strong> Bureaucratic mastery!</li>
+            <li><strong>Body Mass Index (BMI) &ge; 70 kg/m&sup2;:</strong> Morbid glory!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rules-footer">
+        <button id="start-game-btn" class="btn btn-primary btn-large" type="button">
+          Start game
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       3. MAIN GAME SHELL (Mobile-First Vertical Stack)
+       ==================================================================== -->
+  <main id="game-app" class="game-container">
+
+    <!-- SECTION 1: TWO DICE IN A BOX (At the very top of the game) -->
+    <section id="dice-section" class="panel dice-box-panel" aria-label="Dice Box">
+      <div class="dice-box-top-row">
+        <div class="turn-indicator" id="turn-indicator">
+          <span class="token-dot token-blue" id="turn-token-dot"></span>
+          <span id="turn-status-text">Your Turn — Tap Dice Box to Roll</span>
+        </div>
+        <div class="dice-controls-mini">
+          <button id="rules-reopen-btn" class="btn-chip" type="button" title="View Rules">Rules</button>
+          <button id="rig-toggle-btn" class="btn-chip hidden" type="button" title="Configure Dice Roll Control">
+            Roll: <span id="rig-mode-label">Director</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- The tappable Dice Box itself -->
+      <div id="dice-click-box" class="dice-click-box" role="button" tabindex="0" aria-label="Tap to roll dice">
+        <div class="die-wrapper">
+          <div id="die-1" class="die" data-value="1" aria-label="Die 1"></div>
+          <div id="die-2" class="die" data-value="1" aria-label="Die 2"></div>
+        </div>
+        <div class="dice-meta">
+          <div class="dice-sum-badge" id="dice-sum-badge">Your turn!</div>
+          <div class="dice-prompt-sub" id="dice-prompt-sub">Tap dice or box to roll</div>
+        </div>
+      </div>
+
+      <!-- Optional collapsible Dice Rigging / Cheat Drawer -->
+      <div id="dice-rig-drawer" class="dice-rig-drawer hidden">
+        <div class="rig-row">
+          <label for="dice-mode-select">Roll Mode:</label>
+          <select id="dice-mode-select">
+            <option value="DIRECTOR">Story Director (Smart Drama)</option>
+            <option value="RANDOM">Pure Random (Fair Dice)</option>
+            <option value="MANUAL">Manual Cheat (Pick Next Roll)</option>
+          </select>
+        </div>
+        <div id="manual-dice-picker" class="rig-row hidden">
+          <label>Next Roll:</label>
+          <select id="manual-die-1">
+            <option value="1">Die 1: ⚀ (1)</option>
+            <option value="2">Die 1: ⚁ (2)</option>
+            <option value="3" selected>Die 1: ⚂ (3)</option>
+            <option value="4">Die 1: ⚃ (4)</option>
+            <option value="5">Die 1: ⚄ (5)</option>
+            <option value="6">Die 1: ⚅ (6)</option>
+          </select>
+          <select id="manual-die-2">
+            <option value="1">Die 2: ⚀ (1)</option>
+            <option value="2">Die 2: ⚁ (2)</option>
+            <option value="3">Die 2: ⚂ (3)</option>
+            <option value="4" selected>Die 2: ⚃ (4)</option>
+            <option value="5">Die 2: ⚄ (5)</option>
+            <option value="6">Die 2: ⚅ (6)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE ACTION / AUCTION / CARD BANNER (Appears when purchase, auction, or card occurs) -->
+    <section id="action-banner" class="panel action-banner hidden" aria-live="polite">
+      <div class="action-banner-header">
+        <span class="action-tag" id="action-tag">EVENT</span>
+        <span class="action-title" id="action-title">Hospital Event</span>
+      </div>
+      <div class="action-banner-body" id="action-body"></div>
+      <div class="action-banner-controls" id="action-controls"></div>
+    </section>
+
+    <!-- SECTION 2: SMALL THUMBNAIL VERSION OF THE BOARD (Static 11x11 Grid) -->
+    <section id="thumbnail-board-section" class="panel board-panel" aria-label="Board Thumbnail">
+      <div class="board-wrapper" id="thumbnail-board">
+        <!-- 40 perimeter tiles injected via JS on 11x11 CSS grid -->
+        <div class="board-center">
+          <img
+            src="Monopoly_board_center.png"
+            alt="Cardiopoly Board Center"
+            class="board-center-img"
+          />
+          <div class="board-center-toast" id="board-ticker-text">
+            Tap the dice box above to begin rounds!
+          </div>
+        </div>
+        <!-- Token layer with X/Y coordinates for each of the 4 tokens -->
+        <div id="board-tokens-layer" class="board-tokens-layer"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CLOSE-UP OF USER'S TOKEN & SURROUNDING 2-3 PROPERTIES ON EACH SIDE -->
+    <section id="closeup-section" class="panel closeup-panel" aria-label="User Token Close-Up">
+      <div class="section-header-bar">
+        <span class="section-title">Magnified View (Your Token)</span>
+        <span class="orientation-badge" id="closeup-orientation-badge">South Wing • 0°</span>
+      </div>
+
+      <div id="closeup-rotator" class="closeup-rotator">
+        <div id="closeup-track" class="closeup-track">
+          <!-- 5-7 surrounding tiles rendered dynamically so property names are horizontal and readable -->
+        </div>
+      </div>
+
+      <div class="closeup-current-detail" id="closeup-current-detail">
+        Standing on: <strong>GO (ER Triage)</strong>
+      </div>
+    </section>
+
+    <!-- SECTION 4: THE 4 PLAYERS' SCORES (SBP, BMI, Waste Points) -->
+    <section id="scores-section" class="panel scores-panel" aria-label="Scoreboard">
+      <div class="section-header-bar">
+        <span class="section-title">Scoreboard</span>
+      </div>
+      <div id="scores-grid" class="scores-grid">
+        <!-- 4 player score cards populated via JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 5: LIST OF PROPERTIES OWNED BY THE PLAYER -->
+    <section id="owned-properties-section" class="panel owned-panel" aria-label="Your properties">
+      <div class="section-header-bar">
+        <span class="section-title">Your properties (<span id="user-prop-count">0</span>)</span>
+        <span class="section-sub" id="all-owned-summary">Total Claimed: 0/28</span>
+      </div>
+      <div id="user-properties-list" class="owned-properties-list">
+        <div class="empty-hint">No hospital units acquired yet. Roll the dice to claim departments!</div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: TRADES AREA (Below Owned Properties) -->
+    <section id="trades-section" class="panel trades-panel" aria-label="Department Trades">
+      <div class="section-header-bar">
+        <span class="section-title">Backroom Turf Trades</span>
+        <button id="create-trade-btn" class="btn btn-secondary btn-sm" type="button">
+          Create trade
+        </button>
+      </div>
+
+      <!-- Active trade offer area (when a bot or user proposes a trade) -->
+      <div id="trade-offer-box" class="trade-offer-box">
+        <div id="trade-status-msg" class="trade-status-msg">
+          No pending trade offer. Tap "Create trade" to swap a property with a bot, or wait for a bot offer.
+        </div>
+
+        <!-- Trade creation / selection controls (shown when user clicks "Create trade") -->
+        <div id="trade-creator-form" class="trade-creator-form hidden">
+          <div class="trade-form-row">
+            <label for="trade-user-prop-select">Your Property:</label>
+            <select id="trade-user-prop-select"></select>
+          </div>
+          <div class="trade-form-row">
+            <label for="trade-bot-prop-select">Bot's Property:</label>
+            <select id="trade-bot-prop-select"></select>
+          </div>
+        </div>
+
+        <!-- Accept / Decline trade buttons (shown whenever a potential trade is presented) -->
+        <div id="trade-response-actions" class="trade-response-actions hidden">
+          <button id="accept-trade-btn" class="btn btn-success btn-sm" type="button">
+            Accept trade
+          </button>
+          <button id="decline-trade-btn" class="btn btn-danger btn-sm" type="button">
+            Decline trade
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       4. CHANCE & COMMUNITY CHEST POPUP WINDOW (Must be acknowledged)
+       ==================================================================== -->
+  <div id="card-modal" class="screen-overlay" role="dialog" aria-modal="true" aria-labelledby="card-modal-type">
+    <div id="card-modal-window" class="card-modal-window">
+      <div id="card-modal-header" class="card-modal-header">
+        <span id="card-modal-type" class="card-modal-type">CHANCE</span>
+        <div id="card-modal-player" class="card-modal-player"></div>
+      </div>
+      <div class="card-modal-body">
+        <p id="card-modal-text" class="card-modal-text"></p>
+        <div id="card-modal-impacts" class="card-modal-impacts"></div>
+      </div>
+      <div class="card-modal-footer">
+        <button id="card-modal-close-btn" class="btn btn-primary btn-large" type="button">
+          Game on!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

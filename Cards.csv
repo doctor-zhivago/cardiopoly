@@ -1,0 +1,62 @@
+CardType,SBP,BMI,WP,Text
+Chance,-10,-5,-500,You undergo bariatric surgery. Ouch! Your diabetes goes away and you lose a ton of weight. Sad!
+Chance,5,3,400,You run out of Wegovy and immediately put on all the weight you had lost. Success at last! 
+Chance,2,1,400,Angiogram finds stable disease in the distal circumflex artery which is stented on sight! Cosmetic triumph!
+Chance,3,0,75,You ditch atorvastatin for cinnamon bark capsules after watching a clip on natural remedies in TikTok. So liberating! 
+Chance,4,2,0,Your angiogram showed only minor disease and you celebrate with a bucket of extra crispy fried chicken.
+Chance,3,0,600,Your neighbor tells you statins are harmful and when you stop that tablet you have a stroke leading to admission for a week. Way to go!
+Chance,-5,3,250,You quit smoking (oh no!) but put on a huge amount of weight instead. Keep it coming! 
+Chance,5,0.5,500,Your whole-body CT scan shows a 2 mm lung freckle. The panic sends your BP soaring and you suffer a TIA in the process. Well done! 
+Chance,0,2,400,Your weight makes you breathless but doctors orders you to have an angiogram just to be safe. Health comes first! 
+Chance,3,0,350,Your smartwatch tells you the rhythm is irregular and you end up monitored for 2 days in the telemetry area. Not bad! 
+Chance,2,2,350,"Your chest feels uneasy watching a horror movie on Netflix and you call 911, leading to 3 troponins for Movie Panic! "
+Chance,3,3,150,You try celery detox but only last 45 minutes before your craving for pizza takes over and you decides to order delivery. Thadda boy! 
+Chance,2,3,150,You find walking too much work but your doctor gets you a medically prescribed mobility scooter. Pure relaxation! 
+Chance,4,0,400,Your coronary calcium score comes back as 12 and your doctor arranges an urgent cath. Stat! 
+Chance,-4,0,-250,You realize that you actually feel better after sleeping with the CPAP machine your doctor recommended. Ouch! 
+Chance,4,0,150,Your CPAP machine breaks down but that’s fine you never liked the damn thing much anyway.
+Chance,3,0,150,Your wife tells you the CPAP machine you’re using makes her think she has Darth Vader sleeping next to her. Oh no! 
+Chance,2,2,400,You discover that vanilla ice cream is the perfect consistency to slip through your gastric bypass. Caloric loophole unlocked! 
+Chance,3,2,200,It’s been 6 weeks since your last stent and you celebrate with a 24 oz ribeye and double loaded baked potato. Yummy!
+Chance,0,0,300,Your cardiologist needs to amortize the new 3D echo machine and you get booked in for an unnecessary surveillance scan. Just to be safe! 
+Chance,3,0.5,350,"You eat two bananas and watch a clip on Instagram warning you of fatal hyperkalemia. After rushing to the ER, you get a hefty bill – but hey better safe than sorry! "
+Chance,2,0,150,Doctors office BP is through the roof but you are adamant it’s the stress of finding parking in front – because how are you supposed to walk to the office from the far corners of the parking lot!?
+Chance,2,1,150,The medical team tell strict NPO prior to a test but you secretly sneak a jelly donut in the bathroom before starting the procedure. Well done! 
+Chance,5,0,600,"Your cardiologist brings up ORBITA trial and you fire them for gaslighting you, and hire an interventionist instead who isn’t afraid of balloons and stents. Finally! "
+Chance,2,2,500,Your angiogram has to be postponed because the cath lab team is busy eating free burritos brought by a device rep. It’s worth the wait! 
+Chance,3,3,350,"When doctor tells you to exercise, you get a passive foot vibration pad instead that, after seeing on Instagram that it’s better than exercise. Smart move! "
+Chance,2,2,400,Your home BP recording machine tells you the rhythm is “irregular”. You panic and end up admitted for telemetry and troponins “just to be safe”. Close call! 
+Chance,-5,0,200,You pop 3 nitroglycerins for heartburn after eating a few spicy burritos and your BP collapses – you hit the carpet! 
+Chance,2,0,325,Your Holter electrode peels off in the bath. Hospital orders a 30-day wireless telemetry patch to protect revenue! 
+Chance,3,3,75,You buy “Heart Smart” oat clusters packed with 42 grams of high-fructose corn syrup. Eating clean!
+Chance,5,0,700,You break the strict 6-hour bedrest after a femoral access cath to use the real toilet. Say hello to a grapefruit-sized hematoma! 
+Chance,4,0.5,50,You quit smoking by switching to an industrial-strength nicotine vape you bought online. Your BP reaches an all-time high! 
+Chance,2,0,800,First doctor suggested lifestyle change – outrageous! Second doctor agrees to insert two drug-eluting stents right away. That’s the spirit! 
+Chance,2,3,150,You buy EDTA online which you mix in your coffee to clean out the coros. The hypocalcemia doesn’t kill you but the hospital bill almost does! Oops! 
+Community chest,-2,-2,-200,"Generic Ozempic is flowing into the country from Brazil and India – oh no, prices come down! "
+Community chest,4,2,300,Lobby groups in Washington circumvents the trans fat ban by calling them “partially hydrogenated oils” – you celebrate with cookies
+Community chest,5,1,100,"Hospital kitchen bans fruits and vegetables to cut costs, replacing them with salted ham broth. Arteries clamp shut! "
+Community chest,1,0,650,Cath lab procedural volume is down 18% this quarter. Elective diagnostic cath suddenly approved for all patients and indications! 
+Community chest,3,1,250,"Pharma rep brings the cath lab 6 dozen gourmet glazed donuts to promote a $2,000/month lipid drug. Breakfast is served! "
+Community chest,4,0,400,Smartwatch firmware update flags normal breathing variation in HR as “arrhythmia” and suddenly patients are lining up outside clinic! 
+Community chest,5,1.5,150,Salt lobby in Washington finally manages to block sodium warnings on food. Vascular trees all over America tighten in solidarity! 
+Community chest,1,0,750,Annual cardiology meeting agrees to ignore ISCHEMIA trial entirely. Full metal jackets for everyone! 
+Community chest,1,1.5,100,New outpatient clinic offers complimentary valet parking 12 feet from the door. Daily steps drop to single digits! 
+Community chest,2,0,600,Hospital lab upgrades to the 8th UDMI with femtogram-sensitive troponin assays. Suddenly everyone has myocardial injury! 
+Community chest,3,1.5,50,Hospital cafeteria installs bottomless 44 oz fountain soda dispensers and suddenly patients are refusing all fasting blood tests! 
+Community chest,-2,0,550,"Generic statin prices drop to $3 / month but fortunately Big Pharma fights back by launching proprietary injectables at $2,000 per dose! "
+Community chest,-5,-4,1000,Hospital opens a fast-track bariatric surgery center. Everyone’s behavioral metabolic excess is fixed with laparoscopic staplers! 
+Community chest,0,0,450,Equipment lease needs extending so an administrative memo mandates routine screening echo for all – in and outpatients! 
+Community chest,5,0,225,Pharmacy automated BP cuff reads 178 / 102 after hauling 3 cases of soda. Walk-in clinic reaps the windfall! 
+Community chest,3,4,225,Agricultural subsidies make high-fructose corn syrup cheaper than tap water. Snack aisles across the nation overflow! 
+Community chest,1,0,500,Hospital risk managers mandate continuous telemetry for all admissions – zero beds left for STEMIs! 
+Community chest,-1,-0.5,0,Hospital prints glossy Mediterranean Diet pamphlets and stacks them right next to those yummy deep-fried cafeteria nuggets. Terrible! 
+Community chest,3,0,750,Health system launches a door-to-balloon speed competition. Patients are ballooned in 22 min before anyone takes a medical history! 
+Community chest,-2,0,-300,"Online supply chain shortage wipes out non-prescription red yeast rice. Patients are forced to take cheap, proven statins. Tragic! "
+Community chest,4,2,100,Local burger franchise sponsors the hospital 5k healthy run. Free bacon double cheeseburgers for participants at the finish line! 
+Community chest,2,0.5,650,"Utilization committee masters 23-hour observation billing. Mild acid reflux successfully billed $7,500 in facility fees. "
+Community chest,3,1.5,200,Hospital terminates the outpatient cardiac rehab program to finance an executive mahogany boardroom. 
+Community chest,2,0,450,Direct-to-consumer TV ads convince the nation that stairs causing breathlessness is a balloon emergency. ER volume explodes! 
+Community chest,4,3,200,Local city council repeals restrictions on commercial trans fats. Industrial bakeries celebrate with hydrogenated bliss! 
+Community chest,2,0,350,"New consensus finally brings down normal blood pressure to 100 / 60 mmHg, and the whole nation is hypertensive overnight! "
+Community chest,3,0,400,CCU fills 100% of its beds with stable stent checks. Critical STEMI and shock cases need to be diverted elsewhere! 

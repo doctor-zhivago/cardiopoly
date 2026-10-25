@@ -1,0 +1,29 @@
+Property,GroupOrder,GroupProperties,GroupName,GroupColor,PropertyName,CorrespondsTo
+1,1,2,Clinic,Brown,ECG room,Mediterranean avenue
+2,1,2,Clinic,Brown,Consultation room,Baltic avenue
+3,2,3,Cardiac rehab,Light blue,Treadmill room,Oriental avenue
+4,2,3,Cardiac rehab,Light blue,CPET lab,Vermont avenue
+5,2,3,Cardiac rehab,Light blue,6-minute walk test,Connecticut avenue
+6,3,3,Observation area,Pink,Troponin cubicle,St. Charles Place
+7,3,3,Observation area,Pink,Telemetry bed,States avenue
+8,3,3,Observation area,Pink,Syncope surveillance,Virginia avenue
+9,4,3,Short-stay unit,Orange,Femoral sandbag space,St. James Place
+10,4,3,Short-stay unit,Orange,Radial recovery lounge,Tennessee avenue
+11,4,3,Short-stay unit,Orange,Hydration cubicle,New York avenue
+12,5,3,Nuclear lab,Red,Diaphragmatic artifact area,Kentucky avenue
+13,5,3,Nuclear lab,Red,SPECT gantry,Indiana avenue
+14,5,3,Nuclear lab,Red,Attenuation area,Illinois avenue
+15,6,3,Echo lab,Yellow,Saline bubble room,Atlantic avenue
+16,6,3,Echo lab,Yellow,Diastolic confusion area,Ventnor avenue
+17,6,3,Echo lab,Yellow,Cold gel space,Marvin gardens
+18,7,3,Cath lab,Green,Full metal jacket room,Pacific avenue
+19,7,3,Cath lab,Green,Oculostenotic space,North Carolina avenue
+20,7,3,Cath lab,Green,Eyeball area,Pennsylvania avenue
+21,8,2,Coronary care unit,Dark blue,Triple-pressor area,Park place
+22,8,2,Coronary care unit,Dark blue,Palliative reality room,Boardwalk
+23,9,4,ACS pipeline,Transparent,UA area,Reading railroad
+24,9,4,ACS pipeline,Transparent,Spasm lounge ,Pennsylvania railroad
+25,9,4,ACS pipeline,Transparent,NSTEMI sidetrack,B and O railroad
+26,9,4,ACS pipeline,Transparent,STEMI expressway,Short line
+27,10,2,Quick-Fix Service,Transparent,Cardioversion Company,Electric company
+28,10,2,Quick-Fix Service,Transparent,Lasix Works,Water works
